@@ -6,12 +6,13 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Encode Sans', sans-serif;
 }
 
 body {
     background-color: #F5F7F6;
     height: 100vh;
-    font-family: 'SansSerifFLF', sans-serif;
+    overflow-y: hidden;
 }
 
 .mainGrid{
@@ -64,6 +65,11 @@ body {
     align-items: center;
 }
 
+.sideBar__user_data span {
+    font-weight: 600;
+    color: #0D1C2D;
+}
+
 .sideBar__user_data button{
     background-color: inherit;
     border: none;
@@ -98,8 +104,8 @@ body {
     gap: 1rem;
     text-decoration: none;
     padding: 0 5rem;
-    color: #000C1F;
-    font-weight: 500;
+    color: #0D1C2D;
+    font-weight: 600;
     letter-spacing: 0.08rem
 }
 
@@ -107,12 +113,12 @@ body {
     font-weight: 600;
 }
 
-.active{
+.sideBar .active{
     background-color: #F5F7F6;
     position: relative;
 }
 
-.active::before{
+.sideBar .active::before{
     content: "";
     width: 5px;
     height: 100%;
@@ -134,36 +140,113 @@ body {
 
 .mainContent{
     padding: 4rem;
+    margin: 0 auto;
 }
 
 .mainContent h2{
     font-size: 2rem;
     margin-bottom: 4rem;
+    font-weight: 600;
+    color: #0D1C2D;
 }
 
-.img1_data{
+.img_data{
     position: absolute;
-    left: 10%;
+    left: 25px;
     bottom: 10%;
     color: #fff;
 }
+
+.mainContent__grid_content{
+    position: relative;
+}
+
+.mainContent__title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mainContent__title_contributors {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+
+.mainContent__title_userImg {
+    position: relative;
+    max-height: 45px;
+}
+
+.mainContent__title_userImg button {
+    background: #0055FF;
+    border: none;
+    padding: 12px 14px;
+    border-radius: 40%;
+    color: #fff;
+    cursor: pointer;
+}
+
+span.mainContent__title_userImg--online {
+    height: 14px;
+    width: 14px;
+    background-color: #2CE72C;
+    border-radius: 50%;
+    display: block;
+    border: 3px solid #fff;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.mainContent__title_userImg img{
+    width: 100%;
+    height: auto;
+    border-radius: 40%;
+    max-width: 40px;
+    max-height: 40px;
+}
+
+
+.mainContent__grid_content:nth-child(4n+1) {
+    grid-column: span 2;
+}
+
+.mainContent__grid_content:nth-child(4n+2) {
+    grid-column: span 1;
+}
+
+.mainContent__grid_content:nth-child(4n+3) {
+    grid-column: span 1;
+}
+
+.mainContent__grid_content:nth-child(4n+4) {
+    grid-column: span 2;
+}
+
 
 .mainContent__grid span {
     display: block;
 }
 
-.mainContent__grid{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.mainContent__grid {
+    display: grid;
     gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    overflow-y: scroll;
+    max-height: 660px;
+    padding-right: 1rem;
+}
+
+.mainContent__grid::-webkit-scrollbar {
+    width: 0px;
+    border-radius: 20px;
+    background: #e5e5e5;
 }
 
 .mainContent__grid img{
     width: 100%;
-    height: auto;
-    max-width: 550px;
-    max-height: 237px;
+    height: 100%;
 }
 
 /* End Main content */
@@ -171,19 +254,53 @@ body {
 /* Start Info Bar */
 
 .infoBar {
-    padding: 4rem;
+    margin: 4rem 4rem 0rem 0rem;
+}
+
+.infoBar__buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 2rem;
+    justify-content: start;
+    text-align: left;
+    justify-items: start;
+    padding: 0 2rem;
+}
+
+.infoBar__buttons button{
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.infoBar__buttons .active{
+    font-weight: 600;
+    position: relative;
+}
+
+.infoBar__buttons .active::after{
+    content: "";
+    width: 80%;
+    height: 3px;
+    background-color: #0055FF;
+    bottom: -1rem;
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin: 0 auto;
 }
 
 .infoBar__history {
     background: #fff;
-    height: 100%;
     border-radius: 1rem;
     box-shadow: 0px 4px 19px 0px rgba(141, 179, 218, 0.18);
     width: 100%;
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2.5rem;
 }
 
 .infobar__history_item {
@@ -237,11 +354,34 @@ body {
 }
 
 .infobar__history_item_data_file span{
-    color: #E73428;
     border: 1px solid #cecece;
     padding: 0.5rem;
     border-radius: 0.8rem;
     font-size: 1.3rem;
 }
 
+.infobar__history_item_data_file .pdf{
+    color: #E73428;
+}
+
+.infobar__history_item_data_file .doc{
+    color: #367CE5;
+}
+
+.infobar__history_item_data_file .xls{
+    color: #2F9B5B;
+}
+
+.infobar__history_item_data_file .img{
+    color: #464646;
+}
+
 /* End Info Bar */
+
+/* Responsive */
+
+@media (max-width: 1500px){
+    .mainContent__grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
