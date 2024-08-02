@@ -10,11 +10,21 @@
     <link rel="stylesheet" href="css/material/material.css" />
 </head>
 
+<script>
+
+    function menuMobile() {
+        const sideBarMenu = document.getElementById("sidebarMenu");
+        const sideBarMenuActive = sideBarMenu.classList.contains("activeMenu");
+        sideBarMenu.classList.toggle("activeMenu", !sideBarMenuActive);
+        document.querySelector(".sideBar").classList.toggle("activeMenu", !sideBarMenuActive);
+    }
+</script>
+
 <body>
     <div class="mainGrid">
 
 
-        <div class="sideBar">
+        <div id="sidebarMenu" class="sideBar">
             <div class="sideBar__user">
                 <div class="sideBar__userData">
                     <div class="sideBar__user_img">
@@ -29,8 +39,8 @@
                         </button>
                     </div>
                 </div>
-                <div class="sideBar__menuMobile">
-                    <button><span class="material-symbols-rounded">
+                <div onclick="menuMobile()" class="sideBar__menuMobile">
+                    <button class="sideBar__menuMobile"><span class="material-symbols-rounded">
                             menu
                         </span></button>
                 </div>
@@ -43,7 +53,8 @@
                     <li><a href="#"><a href="#"><span class="material-symbols-rounded">computer</span> Devices</a></li>
                     <li><a href="#"><a href="#"><span class="material-symbols-rounded">person_add</span> Shared with
                                 me</a></li>
-                     <li class="displayMobile"><a href="#"><a href="#"><span class="material-symbols-rounded">person_add</span> Activity and information</a></li>
+                    <li class="displayMobile"><a href="#"><a href="#"><span
+                                    class="material-symbols-rounded">person_add</span> Activity and information</a></li>
                     <li><a href="#"><a href="#"><span class="material-symbols-rounded">star</span> Favourites</a></li>
                     <li><a href="#"><a href="#"><span class="material-symbols-rounded">delete</span> Deleted</a></li>
                 </ul>
@@ -75,30 +86,48 @@
                 <div class="mainContent__grid_content">
                     <img src="img/img1.png" alt="">
                     <div class="img_data">
-                        <span>Interior.jpg</span>
-                        <span>Me - 4MB</span>
+                        <span class="img_data__name whiteText">Interior.jpg</span>
+                        <span class="img_data__weight greyText">Me - 4MB</span>
                     </div>
                 </div>
 
                 <div class="mainContent__grid_content">
                     <img src="img/img2.png" alt="">
                     <div class="img_data">
-                        <span>Interior.jpg</span>
-                        <span>Me - 4MB</span>
+                        <span class="img_data__name whiteText">Website BG.jpg</span>
+                        <span class="img_data__weight lightGreyText">Peter - 3MB</span>
                     </div>
                 </div>
                 <div class="mainContent__grid_content">
                     <img src="img/img3.png" alt="">
-                    <div class="img_data">
-                        <span>Interior.jpg</span>
-                        <span>Me - 4MB</span>
+                    <div class="img_dataPlay">
+                        <div>
+                            <span class="img_data__name darkText">Track.mp3</span>
+                            <span class="img_data__weight greyText">Me - 3.3MB</span>
+                        </div>
+                        <button>
+                            <div class="img_data__play">
+                                <span class="material-symbols-rounded">
+                                    play_arrow
+                                </span>
+                            </div>
+                        </button>
                     </div>
                 </div>
                 <div class="mainContent__grid_content">
                     <img src="img/img4.png" alt="">
-                    <div class="img_data">
-                        <span>Interior.jpg</span>
-                        <span>Me - 4MB</span>
+                    <div class="img_dataPlay">
+                        <div>
+                            <span class="img_data__name whiteText">Architecture.mp4</span>
+                            <span class="img_data__weight whiteText">John - 14.2MB</span>
+                        </div>
+                        <button>
+                            <div class="img_data__play">
+                                <span class="material-symbols-rounded">
+                                    play_arrow
+                                </span>
+                            </div>
+                        </button>
                     </div>
                 </div>
             </div>
