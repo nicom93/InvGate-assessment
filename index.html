@@ -17,7 +17,6 @@
         const sideBarMenu = document.getElementById("sidebarMenu");
         const sideBarMenuActive = sideBarMenu.classList.contains("activeMenu");
         sideBarMenu.classList.toggle("activeMenu", !sideBarMenuActive);
-        document.querySelector(".sideBar").classList.toggle("activeMenu", !sideBarMenuActive);
     }
 </script>
 
@@ -41,7 +40,7 @@
                     </div>
                 </div>
                 <div onclick="menuMobile()" class="sideBar__menuMobile">
-                    <button class="sideBar__menuMobile"><span class="material-symbols-rounded">
+                    <button class=""><span class="material-symbols-rounded">
                             menu
                         </span></button>
                 </div>
